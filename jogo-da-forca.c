@@ -105,6 +105,8 @@ void menu (int m) {
 
 int main () {
 
+    setlocale (LC_ALL, "Portuguese");
+
     srand (time (NULL));
 
     char facil [3][5] = {"gato", "lago", "bola"};
@@ -123,523 +125,178 @@ int main () {
             case '1':
                 aux = rand () % 4;
                 erros = 0;
-                switch (aux) {
-                    case 0:
-                        strcpy (tela, facil [aux]);
 
+                strcpy (tela, facil [aux]);
+
+                for (i = 0; i < strlen (tela); i++) {
+                    tela [i] = '_';
+                }
+
+                while (1) {
+                    system ("cls");
+
+                    forca (erros);
+                    printf ("\n    ");
+                    for (i = 0; i < strlen (tela); i++) {
+                        printf ("%c ", tela [i]);
+                    }
+
+                    printf ("\n\nDigite uma letra:");
+                    scanf (" %c", &letra);
+
+                    x = 1;
+                    for (i = 0; i < strlen (tela); i++) {
+                        if (letra == facil [aux][i]) {
+                            tela [i] = letra;
+                            x = 0;
+                        } 
+                    }
+
+                    if (x == 1) {
+                        erros++;
+                    }
+
+                    if (erros == 6) {
+                        system ("cls");
+                        forca (erros);
+                        printf ("\n    ");
                         for (i = 0; i < strlen (tela); i++) {
-                            tela [i] = '_';
+                            printf ("%c ", tela [i]);
                         }
-
-                        while (1) {
-                            system ("cls");
-
-                            forca (erros);
-                            printf ("\n    ");
-                            for (i = 0; i < strlen (tela); i++) {
-                                printf ("%c ", tela [i]);
-                            }
-
-                            printf ("\n\nDigite uma letra:");
-                            scanf (" %c", &letra);
-
-                            x = 1;
-                            for (i = 0; i < strlen (tela); i++) {
-                                if (letra == facil [aux][i]) {
-                                    tela [i] = letra;
-                                    x = 0;
-                                } 
-                            }
-
-                            if (x == 1) {
-                                erros++;
-                            }
-
-                            if (erros == 6) {
-                                system ("cls");
-                                forca (erros);
-                                printf ("\n    ");
-                                for (i = 0; i < strlen (tela); i++) {
-                                    printf ("%c ", tela [i]);
-                                }
-                                printf ("\n");
-                                system ("pause");
-                                break;
-                            }
-
-                            if (strcmp (tela, facil [aux]) == 0) {
-                                system ("cls");
-                                forca (erros);
-                                printf ("\n    ");
-                                for (i = 0; i < strlen (tela); i++) {
-                                    printf ("%c ", tela [i]);
-                                }
-                                printf ("\n\n\tVOCÊ VENCEU!\n\tPARABÉNS!\n");
-                                system ("pause");
-                                break;
-                            }
-                        }
+                        printf ("\n");
+                        system ("pause");
                         break;
-                    case 1:
-                        strcpy (tela, facil [aux]);
+                    }
 
+                    if (strcmp (tela, facil [aux]) == 0) {
+                        system ("cls");
+                        forca (erros);
+                        printf ("\n    ");
                         for (i = 0; i < strlen (tela); i++) {
-                            tela [i] = '_';
+                            printf ("%c ", tela [i]);
                         }
-
-                        while (1) {
-                            system ("cls");
-
-                            forca (erros);
-                            printf ("\n    ");
-                            for (i = 0; i < strlen (tela); i++) {
-                                printf ("%c ", tela [i]);
-                            }
-
-                            printf ("\n\nDigite uma letra:");
-                            scanf (" %c", &letra);
-
-                            x = 1;
-                            for (i = 0; i < strlen (tela); i++) {
-                                if (letra == facil [aux][i]) {
-                                    tela [i] = letra;
-                                    x = 0;
-                                } 
-                            }
-
-                            if (x == 1) {
-                                erros++;
-                            }
-
-                            if (erros == 6) {
-                                system ("cls");
-                                forca (erros);
-                                printf ("\n    ");
-                                for (i = 0; i < strlen (tela); i++) {
-                                    printf ("%c ", tela [i]);
-                                }
-                                printf ("\n");
-                                system ("pause");
-                                break;
-                            }
-
-                            if (strcmp (tela, facil [aux]) == 0) {
-                                system ("cls");
-                                forca (erros);
-                                printf ("\n    ");
-                                for (i = 0; i < strlen (tela); i++) {
-                                    printf ("%c ", tela [i]);
-                                }
-                                printf ("\n\n\tVOCÊ VENCEU!\n\tPARABÉNS!\n");
-                                system ("pause");
-                                break;
-                            }
-                        }
+                        printf ("\n\n\tVOCÊ VENCEU!\n\tPARABÉNS!\n");
+                        system ("pause");
                         break;
-                    case 2:
-                        strcpy (tela, facil [aux]);
-
-                        for (i = 0; i < strlen (tela); i++) {
-                            tela [i] = '_';
-                        }
-
-                        while (1) {
-                            system ("cls");
-
-                            forca (erros);
-                            printf ("\n    ");
-                            for (i = 0; i < strlen (tela); i++) {
-                                printf ("%c ", tela [i]);
-                            }
-
-                            printf ("\n\nDigite uma letra:");
-                            scanf (" %c", &letra);
-
-                            x = 1;
-                            for (i = 0; i < strlen (tela); i++) {
-                                if (letra == facil [aux][i]) {
-                                    tela [i] = letra;
-                                    x = 0;
-                                } 
-                            }
-
-                            if (x == 1) {
-                                erros++;
-                            }
-
-                            if (erros == 6) {
-                                system ("cls");
-                                forca (erros);
-                                printf ("\n    ");
-                                for (i = 0; i < strlen (tela); i++) {
-                                    printf ("%c ", tela [i]);
-                                }
-                                printf ("\n");
-                                system ("pause");
-                                break;
-                            }
-
-                            if (strcmp (tela, facil [aux]) == 0) {
-                                system ("cls");
-                                forca (erros);
-                                printf ("\n    ");
-                                for (i = 0; i < strlen (tela); i++) {
-                                    printf ("%c ", tela [i]);
-                                }
-                                printf ("\n\n\tVOCÊ VENCEU!\n\tPARABÉNS!\n");
-                                system ("pause");
-                                break;
-                            }
-                        }
-                        break;
+                    }
                 }
                 break;
             case '2':
                 aux = rand () % 4;
                 erros = 0;
-                switch (aux) {
-                    case 0:
-                        strcpy (tela, medio [aux]);
 
+                strcpy (tela, medio [aux]);
+
+                for (i = 0; i < strlen (tela); i++) {
+                    tela [i] = '_';
+                }
+
+                while (1) {
+                    system ("cls");
+
+                    forca (erros);
+                    printf ("\n    ");
+                    for (i = 0; i < strlen (tela); i++) {
+                        printf ("%c ", tela [i]);
+                    }
+
+                    printf ("\n\nDigite uma letra:");
+                    scanf (" %c", &letra);
+
+                    x = 1;
+                    for (i = 0; i < strlen (tela); i++) {
+                        if (letra == medio [aux][i]) {
+                            tela [i] = letra;
+                            x = 0;
+                        } 
+                    }
+
+                    if (x == 1) {
+                        erros++;
+                    }
+
+                    if (erros == 6) {
+                        system ("cls");
+                        forca (erros);
+                        printf ("\n    ");
                         for (i = 0; i < strlen (tela); i++) {
-                            tela [i] = '_';
+                            printf ("%c ", tela [i]);
                         }
-
-                        while (1) {
-                            system ("cls");
-
-                            forca (erros);
-                            printf ("\n    ");
-                            for (i = 0; i < strlen (tela); i++) {
-                                printf ("%c ", tela [i]);
-                            }
-
-                            printf ("\n\nDigite uma letra:");
-                            scanf (" %c", &letra);
-
-                            x = 1;
-                            for (i = 0; i < strlen (tela); i++) {
-                                if (letra == medio [aux][i]) {
-                                    tela [i] = letra;
-                                    x = 0;
-                                } 
-                            }
-
-                            if (x == 1) {
-                                erros++;
-                            }
-
-                            if (erros == 6) {
-                                system ("cls");
-                                forca (erros);
-                                printf ("\n    ");
-                                for (i = 0; i < strlen (tela); i++) {
-                                    printf ("%c ", tela [i]);
-                                }
-                                printf ("\n");
-                                system ("pause");
-                                break;
-                            }
-
-                            if (strcmp (tela, medio [aux]) == 0) {
-                                system ("cls");
-                                forca (erros);
-                                printf ("\n    ");
-                                for (i = 0; i < strlen (tela); i++) {
-                                    printf ("%c ", tela [i]);
-                                }
-                                printf ("\n\n\tVOCÊ VENCEU!\n\tPARABÉNS!\n");
-                                system ("pause");
-                                break;
-                            }
-                        }
+                        printf ("\n");
+                        system ("pause");
                         break;
-                    case 1:
-                        strcpy (tela, medio [aux]);
+                    }
 
+                    if (strcmp (tela, medio [aux]) == 0) {
+                        system ("cls");
+                        forca (erros);
+                        printf ("\n    ");
                         for (i = 0; i < strlen (tela); i++) {
-                            tela [i] = '_';
+                            printf ("%c ", tela [i]);
                         }
-
-                        while (1) {
-                            system ("cls");
-
-                            forca (erros);
-                            printf ("\n    ");
-                            for (i = 0; i < strlen (tela); i++) {
-                                printf ("%c ", tela [i]);
-                            }
-
-                            printf ("\n\nDigite uma letra:");
-                            scanf (" %c", &letra);
-
-                            x = 1;
-                            for (i = 0; i < strlen (tela); i++) {
-                                if (letra == medio [aux][i]) {
-                                    tela [i] = letra;
-                                    x = 0;
-                                } 
-                            }
-
-                            if (x == 1) {
-                                erros++;
-                            }
-
-                            if (erros == 6) {
-                                system ("cls");
-                                forca (erros);
-                                printf ("\n    ");
-                                for (i = 0; i < strlen (tela); i++) {
-                                    printf ("%c ", tela [i]);
-                                }
-                                printf ("\n");
-                                system ("pause");
-                                break;
-                            }
-
-                            if (strcmp (tela, medio [aux]) == 0) {
-                                system ("cls");
-                                forca (erros);
-                                printf ("\n    ");
-                                for (i = 0; i < strlen (tela); i++) {
-                                    printf ("%c ", tela [i]);
-                                }
-                                printf ("\n\n\tVOCÊ VENCEU!\n\tPARABÉNS!\n");
-                                system ("pause");
-                                break;
-                            }
-                        }
+                        printf ("\n\n\tVOCÊ VENCEU!\n\tPARABÉNS!\n");
+                        system ("pause");
                         break;
-                    case 2:
-                        strcpy (tela, medio [aux]);
-
-                        for (i = 0; i < strlen (tela); i++) {
-                            tela [i] = '_';
-                        }
-
-                        while (1) {
-                            system ("cls");
-
-                            forca (erros);
-                            printf ("\n    ");
-                            for (i = 0; i < strlen (tela); i++) {
-                                printf ("%c ", tela [i]);
-                            }
-
-                            printf ("\n\nDigite uma letra:");
-                            scanf (" %c", &letra);
-
-                            x = 1;
-                            for (i = 0; i < strlen (tela); i++) {
-                                if (letra == medio [aux][i]) {
-                                    tela [i] = letra;
-                                    x = 0;
-                                } 
-                            }
-
-                            if (x == 1) {
-                                erros++;
-                            }
-
-                            if (erros == 6) {
-                                system ("cls");
-                                forca (erros);
-                                printf ("\n    ");
-                                for (i = 0; i < strlen (tela); i++) {
-                                    printf ("%c ", tela [i]);
-                                }
-                                printf ("\n");
-                                system ("pause");
-                                break;
-                            }
-
-                            if (strcmp (tela, medio [aux]) == 0) {
-                                system ("cls");
-                                forca (erros);
-                                printf ("\n    ");
-                                for (i = 0; i < strlen (tela); i++) {
-                                    printf ("%c ", tela [i]);
-                                }
-                                printf ("\n\n\tVOCÊ VENCEU!\n\tPARABÉNS!\n");
-                                system ("pause");
-                                break;
-                            }
-                        }
-                        break;
+                    }
                 }
                 break;
             case '3':
                 aux = rand () % 4;
                 erros = 0;
-                switch (aux) {
-                    case 0:
-                        strcpy (tela, dificil [aux]);
 
+                strcpy (tela, dificil [aux]);
+
+                for (i = 0; i < strlen (tela); i++) {
+                    tela [i] = '_';
+                }
+
+                while (1) {
+                    system ("cls");
+
+                    forca (erros);
+                    printf ("\n    ");
+                    for (i = 0; i < strlen (tela); i++) {
+                        printf ("%c ", tela [i]);
+                    }
+
+                    printf ("\n\nDigite uma letra:");
+                    scanf (" %c", &letra);
+
+                    x = 1;
+                    for (i = 0; i < strlen (tela); i++) {
+                        if (letra == dificil [aux][i]) {
+                            tela [i] = letra;
+                            x = 0;
+                        } 
+                    }
+
+                    if (x == 1) {
+                        erros++;
+                    }
+
+                    if (erros == 6) {
+                        system ("cls");
+                        forca (erros);
+                        printf ("\n    ");
                         for (i = 0; i < strlen (tela); i++) {
-                            tela [i] = '_';
+                            printf ("%c ", tela [i]);
                         }
-
-                        while (1) {
-                            system ("cls");
-
-                            forca (erros);
-                            printf ("\n    ");
-                            for (i = 0; i < strlen (tela); i++) {
-                                printf ("%c ", tela [i]);
-                            }
-
-                            printf ("\n\nDigite uma letra:");
-                            scanf (" %c", &letra);
-
-                            x = 1;
-                            for (i = 0; i < strlen (tela); i++) {
-                                if (letra == dificil [aux][i]) {
-                                    tela [i] = letra;
-                                    x = 0;
-                                } 
-                            }
-
-                            if (x == 1) {
-                                erros++;
-                            }
-
-                            if (erros == 6) {
-                                system ("cls");
-                                forca (erros);
-                                printf ("\n    ");
-                                for (i = 0; i < strlen (tela); i++) {
-                                    printf ("%c ", tela [i]);
-                                }
-                                printf ("\n");
-                                system ("pause");
-                                break;
-                            }
-
-                            if (strcmp (tela, dificil [aux]) == 0) {
-                                system ("cls");
-                                forca (erros);
-                                printf ("\n    ");
-                                for (i = 0; i < strlen (tela); i++) {
-                                    printf ("%c ", tela [i]);
-                                }
-                                printf ("\n\n\tVOCÊ VENCEU!\n\tPARABÉNS!\n");
-                                system ("pause");
-                                break;
-                            }
-                        }
+                        printf ("\n");
+                        system ("pause");
                         break;
-                    case 1:
-                        strcpy (tela, dificil [aux]);
+                    }
 
+                    if (strcmp (tela, dificil [aux]) == 0) {
+                        system ("cls");
+                        forca (erros);
+                        printf ("\n    ");
                         for (i = 0; i < strlen (tela); i++) {
-                            tela [i] = '_';
+                            printf ("%c ", tela [i]);
                         }
-
-                        while (1) {
-                            system ("cls");
-
-                            forca (erros);
-                            printf ("\n    ");
-                            for (i = 0; i < strlen (tela); i++) {
-                                printf ("%c ", tela [i]);
-                            }
-
-                            printf ("\n\nDigite uma letra:");
-                            scanf (" %c", &letra);
-
-                            x = 1;
-                            for (i = 0; i < strlen (tela); i++) {
-                                if (letra == dificil [aux][i]) {
-                                    tela [i] = letra;
-                                    x = 0;
-                                } 
-                            }
-
-                            if (x == 1) {
-                                erros++;
-                            }
-
-                            if (erros == 6) {
-                                system ("cls");
-                                forca (erros);
-                                printf ("\n    ");
-                                for (i = 0; i < strlen (tela); i++) {
-                                    printf ("%c ", tela [i]);
-                                }
-                                printf ("\n");
-                                system ("pause");
-                                break;
-                            }
-
-                            if (strcmp (tela, dificil [aux]) == 0) {
-                                system ("cls");
-                                forca (erros);
-                                printf ("\n    ");
-                                for (i = 0; i < strlen (tela); i++) {
-                                    printf ("%c ", tela [i]);
-                                }
-                                printf ("\n\n\tVOCÊ VENCEU!\n\tPARABÉNS!\n");
-                                system ("pause");
-                                break;
-                            }
-                        }
+                        printf ("\n\n\tVOCÊ VENCEU!\n\tPARABÉNS!\n");
+                        system ("pause");
                         break;
-                    case 2:
-                        strcpy (tela, dificil [aux]);
-
-                        for (i = 0; i < strlen (tela); i++) {
-                            tela [i] = '_';
-                        }
-
-                        while (1) {
-                            system ("cls");
-
-                            forca (erros);
-                            printf ("\n    ");
-                            for (i = 0; i < strlen (tela); i++) {
-                                printf ("%c ", tela [i]);
-                            }
-
-                            printf ("\n\nDigite uma letra:");
-                            scanf (" %c", &letra);
-
-                            x = 1;
-                            for (i = 0; i < strlen (tela); i++) {
-                                if (letra == dificil [aux][i]) {
-                                    tela [i] = letra;
-                                    x = 0;
-                                } 
-                            }
-
-                            if (x == 1) {
-                                erros++;
-                            }
-
-                            if (erros == 6) {
-                                system ("cls");
-                                forca (erros);
-                                printf ("\n    ");
-                                for (i = 0; i < strlen (tela); i++) {
-                                    printf ("%c ", tela [i]);
-                                }
-                                printf ("\n");
-                                system ("pause");
-                                break;
-                            }
-
-                            if (strcmp (tela, dificil [aux]) == 0) {
-                                system ("cls");
-                                forca (erros);
-                                printf ("\n    ");
-                                for (i = 0; i < strlen (tela); i++) {
-                                    printf ("%c ", tela [i]);
-                                }
-                                printf ("\n\n\tVOCÊ VENCEU!\n\tPARABÉNS!\n");
-                                system ("pause");
-                                break;
-                            }
-                        }
-                        break;
+                    }
                 }
                 break;
         }
